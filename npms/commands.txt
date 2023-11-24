@@ -5,3 +5,5 @@ npm install --save body-parser
 npm install --save express-handlebars
 npm install --save sequelize
 npm install --save mongoose
+npm install --save express-session
+npm install --save connect-flash
