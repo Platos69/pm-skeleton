@@ -16,7 +16,7 @@
 // CONFIGURAÇÕES
     //Sessão
         app.use(session({
-            secret: 'cursodenode',
+            secret: '9de7faa8',
             resave: true,
             saveUninitialized: false}))
         app.use(flash())

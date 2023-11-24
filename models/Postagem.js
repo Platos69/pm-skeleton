@@ -1,6 +1,9 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+// CARREGANDO MÓDULOS
+    // Módulos principais
+    const mongoose = require('mongoose')
+    const Schema = mongoose.Schema
 
+// MODELO
 const Postagem = new mongoose.Schema({
     titulo: {
         type: String,
@@ -29,4 +32,5 @@ const Postagem = new mongoose.Schema({
     }
 })
 
+// EXPORTANDO
 mongoose.model('postagens', Postagem)
