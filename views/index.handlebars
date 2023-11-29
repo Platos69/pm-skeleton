@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h1 class="display-4"><strong>Blog Curso NodeJS</strong></h1>
+    <p class="lead">Seja bem vindo ao blog do curso de início ao NodeJS</p>
+    <hr class="my-4">
+    <p>Registre-se agora e acesse o conteúdo total do nosso WebSite</p>
+    <p class="lead">
+        <a class="btn btn-success btn-lg" href="#" role="button">Fazer cadastro</a>
+    </p>
+</div><hr>
+<h2>Postagens recentes: </h2>
+{{#each postagens}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{titulo}}</h3>
+        <p>Descrição: {{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+        <hr>
+        <small>Categoria: {{categoria.nome}}</small><br>
+        <small>Data de criação: {{data}}</small>
+    </div>
+</div>
+
+{{else}}
+    <hr class="mt-4">
+    <h5><strong>Nenhuma postagem encontrada</strong></h5>
+{{/each}}
+

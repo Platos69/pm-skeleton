@@ -1,9 +1,14 @@
 {
     "cSpell.ignoreWords": [
+        "BLOGAPP",
+        "Usuarios",
         "addcategorias",
         "addpostagens",
+        "blogapp",
         "conteudo",
         "descricao",
-        "editcategorias"
+        "editcategorias",
+        "editpostagens",
+        "usuarios"
     ]
 }
