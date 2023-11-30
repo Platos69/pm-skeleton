@@ -59,6 +59,10 @@ const mongoose = require('mongoose')
                         }).catch((err) => {
                             req.flash('error_msg', 'Houve um error ao criar a conta, error: ' + err)
                             res.redirect('/')
+                            
+                            req.flash('success_msg', 'Usuário salvo com sucesso')
+                        }).catch((err) => {
+                            req.flash('error_msg', 'Houve um error ao salvar o usuário, error: ' + err)
                         });
                     }
         })
