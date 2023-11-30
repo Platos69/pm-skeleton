@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
     // Usuarios
     require('../models/Usuario')
     const Usuario = mongoose.model('usuario')
@@ -95,8 +96,13 @@ const bcrypt = require('bcryptjs')
             res.render('usuarios/login')
         })
             // Direcionamento para validação 
-            router.post('login', (req, res) => {
-
+            router.post('/login', (req, res, next) => {
+                passport.authenticate('local', {
+                    successRedirect: '/',
+                    failureRedirect: '/usuarios/login',
+                    failureFlash: true,
+                    badRequestMessage: 'Campos vazios'
+                })(req, res, next)
             })
 
 module.exports = router
