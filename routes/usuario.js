@@ -46,7 +46,19 @@ const mongoose = require('mongoose')
                     if(erros.length > 0) {
                         res.render('usuarios/registro', {erros: erros})
                     } else {
+                        // Criação de usuário
+                        const novoUsuario = {
+                            nome: req.body.nome,
+                            email: req.body.email,
+                            senha: req.body.senha,
+                            IsAdmin: req.body.IsAdmin
+                        }
 
+                        new Usuario(novoUsuario).save().then(() => {
+                            req.flash('success_msg', 'Usuário salvo com sucesso')
+                        }).catch((err) => {
+                            req.flash('error_msg', 'Houve um error ao salvar o usuário, error: ' + err)
+                        });
                     }
         })
 
