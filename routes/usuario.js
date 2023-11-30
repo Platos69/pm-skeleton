@@ -13,7 +13,6 @@ const mongoose = require('mongoose')
     }) 
         // Direcionando para validação
         router.post('/registro', (req, res) => {
-            debugger
             var erros = []
 
             // Validação
