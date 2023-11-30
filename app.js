@@ -9,6 +9,7 @@
     const mongoose = require('mongoose')
     const session = require('express-session')
     const flash = require('connect-flash')
+    const passport = require('passport')
         // Models
         require('./models/Postagem')
         const Postagem = mongoose.model('postagens')
@@ -16,7 +17,9 @@
         const Categoria = mongoose.model('categorias')
         // Definição de rotas
         const admin = require('./routes/admin.js')  
-        const usuarios = require('./routes/usuario.js')  
+        const usuarios = require('./routes/usuario.js') 
+        // Configurações
+        require('./config/auth')(passport)
 
 // CONFIGURAÇÕES
     // Sessão
@@ -24,6 +27,9 @@
             secret: '9de7faa8',
             resave: true,
             saveUninitialized: false}))
+            // Passport
+            app.use(passport.initialize())
+            app.use(passport.session())
         app.use(flash())
     // Global var
         app.use((req, res, next) => {
