@@ -1,4 +1,4 @@
-hackiado//Comandos essenciais
+//Comandos essenciais
     //Iniciar mongodb (linux):
     sudo systemctl start mongod
     mongosh

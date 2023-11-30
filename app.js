@@ -42,9 +42,9 @@
         }),
         ),
         app.set('view engine', 'handlebars')
-    // Mongoose
+        // Mongoose
         mongoose.Promise = global.Promise
-        mongoose.connect('mongodb://localhost/blogapp').then(() => {
+        mongoose.connect('mongodb://127.0.0.1:27017/blogapp').then(() => {
             console.log('[BLOGAPP] Conectado ao banco com sucesso!')
         }).catch((err) => {
             console.log(`[BLOGAPP] Erro ao conectar no Banco!\n Erro: ${err}`)

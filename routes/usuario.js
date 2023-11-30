@@ -38,7 +38,7 @@ const mongoose = require('mongoose')
                     erros.push({texto: 'Senha muito pequena'})
                 }
 
-                if(req.body.senha != req.body.senhaConfirmar){
+                if(req.body.senhaConfirmar != req.body.senha){
                     erros.push({texto: 'Senhas não coincidem'})
                 }
 
@@ -46,7 +46,21 @@ const mongoose = require('mongoose')
                     if(erros.length > 0) {
                         res.render('usuarios/registro', {erros: erros})
                     } else {
+                        // Criação de usuário
+                        const novoUsuario = {
+                            nome: req.body.nome,
+                            email: req.body.email,
+                            senha: req.body.senha,
+                            IsAdmin: req.body.IsAdmin
+                        }
 
+                        new Usuario(novoUsuario).save().then(() => {
+                            req.flash('success_msg', 'Conta criada com sucesso')
+                            res.redirect('/')
+                        }).catch((err) => {
+                            req.flash('error_msg', 'Houve um error ao criar a conta, error: ' + err)
+                            res.redirect('/')
+                        });
                     }
         })
 
